@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/chat.css">
+    <title>Instant Messaging Apps</title>
+  </head>
+  <body>
+    global chat:<br>
+    <textarea class = "chat" id = "globalChat" cols="100" rows="25" readonly></textarea><br>
+    <input type="text" id="globalSendBar" value="">
+    <button type="button" onclick="sendGlobalMessage()">send</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src = "/chat.js"></script>
+  </body>
+</html>
