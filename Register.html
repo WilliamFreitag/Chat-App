@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form class="" action="/Register.html" method="post">
+      Username: <input autofocus required type="text" name="Username" id = "Username" maxlength="20" oninput = "usernameChange()"><div id = "UsernameCharCount">0/20</div>
+      <div id = "exists"></div>
+      Password: <input required type="password" name="Password" id = "Password" maxlength="20" oninput = "passwordChange()"><div id = "PasswordCharCount">0/20</div>
+      <input type="checkbox" onclick = "passwordShow()"> Show Password <br>
+      <input type="submit" name="" value="Register"><br>
+    </form>
+    <a href="Login.html">click here to Login!</a>
+  </body>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src = "Register.js" type="text/javascript"></script>
+</html>
