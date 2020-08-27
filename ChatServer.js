@@ -14,7 +14,7 @@ io.on('connection', (socket) => {
   console.log('a user connected');
   socket.on('checkIfUserExists', (username) => {
     ChatUser.find({username: username},(err,user) =>{
-      if(user.length === 0) socket.emit('checkIfUserExists',false);
+      if(user.length === 0) socket.emit('checkIfUserExists', false);
       else socket.emit('checkIfUserExists',true);
     });
   });

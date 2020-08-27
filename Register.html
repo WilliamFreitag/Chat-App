@@ -6,11 +6,11 @@
   </head>
   <body>
     <form class="" action="/Register.html" method="post">
-      Username: <input autofocus required type="text" name="Username" id = "Username" maxlength="20" oninput = "usernameChange()"><div id = "UsernameCharCount">0/20</div>
+      Username: <input autofocus required type="text" name="Username" id = "Username" minlength = "5" maxlength="20" oninput = "usernameChange()"><div id = "UsernameCharCount">0/20</div>
       <div id = "exists"></div>
-      Password: <input required type="password" name="Password" id = "Password" maxlength="20" oninput = "passwordChange()"><div id = "PasswordCharCount">0/20</div>
+      Password: <input required type="password" name="Password" id = "Password" minlength = "5" maxlength="20" oninput = "passwordChange()"><div id = "PasswordCharCount">0/20</div>
       <input type="checkbox" onclick = "passwordShow()"> Show Password <br>
-      <input type="submit" name="" value="Register"><br>
+      <input type="submit" id = "submit" value="Register" disabled><br>
     </form>
     <a href="Login.html">click here to Login!</a>
   </body>

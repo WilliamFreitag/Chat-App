@@ -25,10 +25,21 @@ function passwordShow(){
 
 function checkIfUserExists(){
   var username = document.getElementById("Username");
+  var exists = document.getElementById("exists");
+  var submit = document.getElementById("submit");
+  if(username.value === "") {
+    exists.innerHTML = "";
+    submit.setAttribute("disabled",true);
+    return;
+  }
   socket.emit("checkIfUserExists",username.value);
   socket.on("checkIfUserExists", (e)=>{
-    var exists = document.getElementById("exists");
-    if(e) exists.innerHTML = "That username is taken.<br>";
-    else exists.innerHTML = "That username is not taken.<br>";
+    if(e) {
+      submit.setAttribute("disabled", "true");
+      exists.innerHTML = "That username, "+ username.value +", is taken.<br>";
+    } else {
+      submit.removeAttribute("disabled");
+      exists.innerHTML = "That username, "+ username.value +", is not taken.<br>";
+    }
   });
 }
