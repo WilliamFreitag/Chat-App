@@ -1,4 +1,10 @@
 var socket = io();
+usernameChange();
+passwordChange();
+const urlParams = new URLSearchParams(window.location.search);
+const resFailed = urlParams.get('RegFailed');
+if(resFailed === "true")document.getElementById('status').innerHTML = "That username is taken";
+
 function usernameChange() {
   checkIfUserExists();
   var usernamecount = document.getElementById("UsernameCharCount");
