@@ -33,9 +33,6 @@ app.get('/getSession',(req,res)=>res.json(req.session.user));
 
 app.get('/logout',(req,res)=>{
   req.session.destroy((e)=>{
-    console.log("hello");
-    console.log(req.session);
-    console.log(e);
     res.redirect('/Login.html');
   });
 });
