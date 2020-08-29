@@ -32,8 +32,7 @@ io.on('connection', (socket) => {
 app.get('/getSession',(req,res)=>res.json(req.session.user));
 
 app.get('/logout',(req,res)=>{
-  req.session.destroy();
-  res.redirect('/Login.html');
+  req.session.destroy((e)=>res.redirect('/Login.html'));
 });
 
 app.get('/chat.html',(req,res)=>res.sendFile(path.resolve(__dirname+'/chat.html')));
@@ -42,7 +41,6 @@ app.get('/',(req,res)=>res.redirect("/Login.html"));
 
 app.get('/Login.html',(req,res)=>{
   if(req.session.user) {
-    console.log(req.session.user);
     res.redirect("/chat.html");
   }else res.sendFile(path.resolve(__dirname+'/Login.html'));
 });
