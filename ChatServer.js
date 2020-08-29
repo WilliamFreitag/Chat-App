@@ -29,12 +29,10 @@ io.on('connection', (socket) => {
   socket.on('disconnect',()=>console.log('user disconnected'));
 });
 
-app.get('/getSession',(req,res)=>{
-  res.json(req.session.user);
-});
+app.get('/getSession',(req,res)=>res.json(req.session.user));
 
 app.get('/logout',(req,res)=>{
-  req.session.user = '';
+  req.session.destroy();
   res.redirect('/Login.html');
 });
 
@@ -43,6 +41,7 @@ app.get('/chat.html',(req,res)=>res.sendFile(path.resolve(__dirname+'/chat.html'
 app.get('/',(req,res)=>res.redirect("/Login.html"));
 
 app.get('/Login.html',(req,res)=>{
+  console.log(req.session.user);
   if(req.session.user) res.redirect("/chat.html");
   else res.sendFile(path.resolve(__dirname+'/Login.html'));
 });
