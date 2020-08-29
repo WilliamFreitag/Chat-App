@@ -30,12 +30,11 @@ io.on('connection', (socket) => {
 });
 
 app.get('/getSession',(req,res)=>{
-  console.log(req.session.user);
   res.json(req.session.user);
 });
 
 app.get('/logout',(req,res)=>{
-  req.session.destroy();
+  req.session.user = '';
   res.redirect('/Login.html');
 });
 
