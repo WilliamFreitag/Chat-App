@@ -1,6 +1,6 @@
 var socket = io();
 var session;
-fetch("http://localhost:82/getSession").then(data => data.json()).then(data => session = data).then(data => document.getElementById("header").innerHTML = "Hello! You are logged in as: " + data.username);
+fetch("http://williamfreitag.mynetgear.com:82/getSession").then(data => data.json()).then(data => session = data).then(data => document.getElementById("header").innerHTML = "Hello! You are logged in as: " + data.username);
 document.addEventListener('keypress', (e) => {
   if(e.key === "Enter" && document.activeElement === document.getElementById("globalSendBar"))
     sendGlobalMessage();
