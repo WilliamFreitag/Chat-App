@@ -41,9 +41,10 @@ app.get('/chat.html',(req,res)=>res.sendFile(path.resolve(__dirname+'/chat.html'
 app.get('/',(req,res)=>res.redirect("/Login.html"));
 
 app.get('/Login.html',(req,res)=>{
-  console.log(req.session.user);
-  if(req.session.user) res.redirect("/chat.html");
-  else res.sendFile(path.resolve(__dirname+'/Login.html'));
+  if(req.session.user) {
+    console.log(req.session.user);
+    res.redirect("/chat.html");
+  }else res.sendFile(path.resolve(__dirname+'/Login.html'));
 });
 
 app.get('/Register.html',(req,res)=>res.sendFile(path.resolve(__dirname+'/Register.html')));
